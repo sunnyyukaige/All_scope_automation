@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Web_UI_Load" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="jp@gc - Chrome Driver Config" enabled="true">
+        <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+        <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+        <stringProp name="WebDriverConfig.http_host"></stringProp>
+        <intProp name="WebDriverConfig.http_port">8080</intProp>
+        <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+        <stringProp name="WebDriverConfig.https_host"></stringProp>
+        <intProp name="WebDriverConfig.https_port">8080</intProp>
+        <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+        <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+        <stringProp name="WebDriverConfig.socks_host"></stringProp>
+        <intProp name="WebDriverConfig.socks_port">8080</intProp>
+        <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+        <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+        <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+        <stringProp name="ChromeDriverConfig.chromedriver_path">chromedriver.exe</stringProp>
+        <boolProp name="ChromeDriverConfig.android_enabled">false</boolProp>
+      </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers"/>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="LoginURL" elementType="Argument">
+            <stringProp name="Argument.name">LoginURL</stringProp>
+            <stringProp name="Argument.value">http://omni-operation-staging.ef.cn/group/</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserName" elementType="Argument">
+            <stringProp name="Argument.name">UserName</stringProp>
+            <stringProp name="Argument.value">test.global@ef.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Password" elementType="Argument">
+            <stringProp name="Argument.name">Password</stringProp>
+            <stringProp name="Argument.value">Zendesk1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="GroupID" elementType="Argument">
+            <stringProp name="Argument.name">GroupID</stringProp>
+            <stringProp name="Argument.value">40191</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="AttendanceSessionID" elementType="Argument">
+            <stringProp name="Argument.name">AttendanceSessionID</stringProp>
+            <stringProp name="Argument.value">44899</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Timeout" elementType="Argument">
+            <stringProp name="Argument.name">Timeout</stringProp>
+            <stringProp name="Argument.value">5000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewAttendance_DayView" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewAttendance_DayView_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+//var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+//Attendance.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewAttendance_DayView_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+// WDS.browser.get(&apos;http://omni-operation-qa.ef.cn/group/&apos;+${GroupID})
+// 
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+// var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+// 
+// WDS.sampleResult.sampleStart()
+// Attendance.click()
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+// WDS.sampleResult.sampleEnd()
+
+
+WDS.sampleResult.sampleStart()
+//Attendance.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewAttendance_DayView" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, 5000)
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewAttendance_DayView_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+
+
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+//var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+//Attendance.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/course&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewAttendance_DayView_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+// WDS.browser.get(&apos;http://omni-operation-qa.ef.cn/group/&apos;+${GroupID})
+// 
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+// var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+// 
+// WDS.sampleResult.sampleStart()
+// Attendance.click()
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+// WDS.sampleResult.sampleEnd()
+
+
+WDS.sampleResult.sampleStart()
+//Attendance.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/course&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MarkAttendance_DayView" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="MarkAttendance_DayView_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+//var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+//Attendance.click()
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+var MarkBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;))
+MarkBtn.click()
+
+WDS.sampleResult.sampleStart()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button[2]&quot;)))
+var PublishBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button[2]&quot;))
+PublishBtn.click()
+//wait.until(conditions.invisibilityOfElementLocated(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button[2]&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="MarkAttendance_DayView_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+var MarkBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;))
+MarkBtn.click()
+
+WDS.sampleResult.sampleStart()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button[2]&quot;)))
+var PublishBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button[2]&quot;))
+PublishBtn.click()
+wait.until(conditions.invisibilityOfElementLocated(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button[2]&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MarkAttendance_CourseView" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480832676000</longProp>
+        <longProp name="ThreadGroup.end_time">1480832676000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="MarkAttendance_CourseView_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/course&apos;)
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+var MarkBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;))
+MarkBtn.click()
+                                                          
+var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[1]/td[3]/div/div[1]&quot;))
+AttendanceBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[1]/td[3]/div/div[2]/div/div[1]/button&quot;)))
+
+WDS.sampleResult.sampleStart()
+var PresentBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[1]/td[3]/div/div[2]/div/div[1]/button&quot;))
+PresentBtn.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()
+
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="MarkAttendance_CourseView_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+
+//var MarkBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;))
+//MarkBtn.click()
+
+var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[1]/td[3]/div/div[1]&quot;))
+AttendanceBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[1]/td[3]/div/div[2]/div/div[1]/button&quot;)))
+
+WDS.sampleResult.sampleStart()
+var PresentBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[1]/td[3]/div/div[2]/div/div[1]/button&quot;))
+PresentBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewProgressReport" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewProgressReport_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var ProgressReportBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+ProgressReportBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[3]/td[2]/div&quot;)))
+// WDS.browser.get(&apos;http://omni-operation-qa.ef.cn/group/&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewProgressReport_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var ProgressReportBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+ProgressReportBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[3]/td[2]/div&quot;)))
+WDS.sampleResult.sampleEnd()
+
+
+// WDS.sampleResult.sampleStart()
+// WDS.browser.get(&apos;http://omni-operation-qa.ef.cn/group/&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+// WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewStudentProgressReport" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewStudentProgressReport_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var ProgressReportBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;))
+ProgressReportBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[3]/td[2]/div&quot;)))
+
+var StudentPRBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[3]/td[2]/div&quot;))
+WDS.sampleResult.sampleStart()
+StudentPRBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div[1]/nav/ul/li[1]/a&quot;)))
+WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewStudentProgressReport_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var ProgressReportBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;))
+ProgressReportBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[3]/td[2]/div&quot;)))
+
+var StudentPRBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/table/tbody/tr[3]/td[2]/div&quot;))
+WDS.sampleResult.sampleStart()
+StudentPRBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div[1]/nav/ul/li[1]/a&quot;)))
+WDS.sampleResult.sampleEnd()
+
+
+// WDS.sampleResult.sampleStart()
+// WDS.browser.get(&apos;http://omni-operation-qa.ef.cn/group/&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+// WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewHW_StudentAPP" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewHW_StudentAPP_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var HWBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[2]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+HWBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/div/table/tbody/tr[1]/td/div/table/thead/tr[1]/th[9]/div/a&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewHW_StudentAPP_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var HWBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[2]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+HWBtn.click()
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/div/table/tbody/tr[1]/td/div/table/thead/tr[1]/th[9]/div/a&quot;)))
+WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewHW_Mentor" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewHW_Mentor_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var HWBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[2]/a/button&quot;))
+HWBtn.click()
+var MentorBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/ul/li[2]/span&quot;))
+
+
+WDS.sampleResult.sampleStart()
+MentorBtn.click()
+//wait.until(!conditions.textToBePresentInElementValue(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/div/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[7]/div&quot;), &apos;...&apos;))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewHW_Mentor_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[5]/a/button&quot;)))
+var HWBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[2]/a/button&quot;))
+HWBtn.click()
+var MentorBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/ul/li[2]/span&quot;))
+
+
+WDS.sampleResult.sampleStart()
+MentorBtn.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[3]/div/table/tbody/tr[1]/td/div/table/thead/tr[1]/th[9]/div/a&quot;)))
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewPT" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480927195000</longProp>
+        <longProp name="ThreadGroup.end_time">1480927195000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewPT_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[4]/a/button&quot;)))
+wait.until(conditions.invisibilityOfElementLocated(pkg.By.className(&quot;pace&quot;)))
+var PTbutton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[4]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+PTbutton.click()
+wait.until(conditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewPT_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+WDS.browser.get(&apos;${LoginURL}&apos;+${groupid})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[4]/a/button&quot;)))
+wait.until(conditions.invisibilityOfElementLocated(pkg.By.className(&quot;pace&quot;)))
+var PTbutton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[4]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+PTbutton.click()
+
+wait.until(conditions.visibilityOfElementLocated(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MarkPT" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480927322000</longProp>
+        <longProp name="ThreadGroup.end_time">1480927322000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="MarkPT_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+wait.until(conditions.elementToBeClickable(pkg.By.cssSelector(&quot;.pace-done button.test-button-go-to-progress-test&quot;)))
+var PTbutton=WDS.browser.findElement(pkg.By.cssSelector(&quot;.pace-done button.test-button-go-to-progress-test&quot;))
+PTbutton.click()
+
+//wait.until(conditions.visibilityOfElementLocated(pkg.By.cssSelector(&quot;.pace-inactive&quot;)))
+wait.until(conditions.invisibilityOfElementLocated(pkg.By.cssSelector(&quot;.pace-active&quot;))) 
+var PTMarkbutton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button&quot;))
+PTMarkbutton.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*123&quot;)));
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/div/div/div&quot;)))
+var PTscore= WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/div/div/div&quot;))
+PTscore.click()
+var PTSavebutton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button[2]&quot;))
+
+WDS.sampleResult.sampleStart()
+PTSavebutton.click()
+WDS.sampleResult.sampleEnd()
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="MarkPT_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+WDS.browser.get(&apos;${LoginURL}&apos;+${groupid})
+wait.until(conditions.elementToBeClickable(pkg.By.cssSelector(&quot;.pace-done button.test-button-go-to-progress-test&quot;)))
+var PTbutton=WDS.browser.findElement(pkg.By.cssSelector(&quot;.pace-done button.test-button-go-to-progress-test&quot;))
+PTbutton.click()
+
+//wait.until(conditions.visibilityOfElementLocated(pkg.By.cssSelector(&quot;.pace-inactive&quot;)))
+wait.until(conditions.invisibilityOfElementLocated(pkg.By.cssSelector(&quot;.pace-active&quot;))) 
+var PTMarkbutton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button&quot;))
+PTMarkbutton.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*123&quot;)));
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/div/div/div&quot;)))
+var PTscore= WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/div/div/div&quot;))
+PTscore.click()
+var PTSavebutton=WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/button[2]&quot;))
+
+WDS.sampleResult.sampleStart()
+PTSavebutton.click()
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ViewGroup_Dashboard" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480819378000</longProp>
+        <longProp name="ThreadGroup.end_time">1480819378000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Login Omni" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID})
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;)))
+
+var Email = WDS.browser.findElement(pkg.By.name(&quot;username&quot;))
+Email.sendKeys(&apos;${UserName}&apos;)
+var Password = WDS.browser.findElement(pkg.By.name(&quot;password&quot;))
+Password.sendKeys(&apos;${Password}&apos;)
+var SignInBtn = WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/div/div/div/div[2]/div/form/fieldset/div[5]/button&quot;))
+
+
+//WDS.sampleResult.sampleStart()
+SignInBtn.click()
+//WDS.sampleResult.sampleEnd()
+
+</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewGroup_Dashboard_withoutCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+//var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+
+WDS.sampleResult.sampleStart()
+//Attendance.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="ViewGroup_Dashboard_withCache" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium)
+var support_ui = JavaImporter(org.openqa.selenium.support.ui.WebDriverWait)
+var wait = new support_ui.WebDriverWait(WDS.browser, ${Timeout})
+var conditions = org.openqa.selenium.support.ui.ExpectedConditions
+
+// WDS.browser.get(&apos;http://omni-operation-qa.ef.cn/group/&apos;+${GroupID})
+// 
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;)))
+// var AttendanceBtn = WDS.browser.findElement(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[1]/a/button&quot;))
+// 
+// WDS.sampleResult.sampleStart()
+// Attendance.click()
+// wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+// WDS.sampleResult.sampleEnd()
+
+
+WDS.sampleResult.sampleStart()
+//Attendance.click()
+//wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.browser.get(&apos;${LoginURL}&apos;+${GroupID}+&apos;/session/&apos;+${AttendanceSessionID}+&apos;/attendance/day&apos;)
+wait.until(conditions.elementToBeClickable(pkg.By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div/div[2]/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/button&quot;)))
+WDS.sampleResult.sampleEnd()</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">javascript</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

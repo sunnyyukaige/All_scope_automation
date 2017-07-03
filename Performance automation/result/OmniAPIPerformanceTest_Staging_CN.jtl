@@ -1,0 +1,57 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,grpThreads,allThreads,Latency,IdleTime
+1481532923071,1182,Staging_Groups_Session_1,200,OK,Groups_Session_1 1-1,text,true,,35954,1,1,799,0
+1481532924258,203,Staging_Groups_Session_1,200,OK,Groups_Session_1 2-1,text,true,,8716,1,1,202,0
+1481532924464,278,Staging_Groups_Session_1,200,OK,Groups_Session_1 3-1,text,true,,8709,1,1,227,0
+1481532924746,1079,Staging_Groups_Session_1,200,OK,Groups_Session_1 4-1,text,true,,35945,1,1,227,0
+1481532925828,638,Staging_Groups_ContentMap_1,200,OK,Groups_ContentMap_1 5-1,text,true,,936,1,1,638,0
+1481532926470,320,Staging_Groups_ContentMap_1,200,OK,Groups_ContentMap_1 6-1,text,true,,936,1,1,320,0
+1481532926794,394,Staging_Groups_ContentMap_1,200,OK,Groups_ContentMap_1 7-1,text,true,,961,1,1,393,0
+1481532927190,316,Staging_Groups_ContentMap_1,200,OK,Groups_ContentMap_1 8-1,text,true,,936,1,1,316,0
+1481532927509,234,Staging_Attendance_ViewAttendance_1,200,OK,Attendance_ViewAttendance_1 9-1,text,true,,1947,1,1,234,0
+1481532927746,570,Staging_Attendance_ViewAttendance_1,200,OK,Attendance_ViewAttendance_1 10-1,text,true,,1972,1,1,570,0
+1481532928319,198,Staging_Attendance_ViewAttendance_1,200,OK,Attendance_ViewAttendance_1 11-1,text,true,,1947,1,1,198,0
+1481532928519,195,Staging_Attendance_ViewAttendance_1,200,OK,Attendance_ViewAttendance_1 12-1,text,true,,1965,1,1,195,0
+1481532928722,276,Staging_Attendance_MarkAttendance_1,204,No Content,Attendance_MarkAttendance_1 13-1,,true,,105,1,1,0,0
+1481532929006,266,Staging_Attendance_MarkAttendance_1,204,No Content,Attendance_MarkAttendance_1 14-1,,true,,105,1,1,0,0
+1481532929275,277,Staging_Attendance_MarkAttendance_1,204,No Content,Attendance_MarkAttendance_1 15-1,,true,,105,1,1,0,0
+1481532929558,576,Staging_Attendance_MarkAttendance_1,204,No Content,Attendance_MarkAttendance_1 16-1,,true,,105,1,1,0,0
+1481532930142,600,Staging_ProgressTests_ViewResults_1,200,OK,ProgressTests_ViewResults_1 17-1,text,true,,14045,1,1,574,0
+1481532930744,1196,Staging_ProgressTests_ViewResults_1,200,OK,ProgressTests_ViewResults_1 18-1,text,true,,14086,1,1,1166,0
+1481532931943,324,Staging_ProgressTests_ViewResults_1,200,OK,ProgressTests_ViewResults_1 19-1,text,true,,14038,1,1,323,0
+1481532932269,318,Staging_ProgressTests_ViewResults_1,200,OK,ProgressTests_ViewResults_1 20-1,text,true,,14046,1,1,259,0
+1481532932589,609,Staging_ProgressTests_MarkResults_1,204,No Content,ProgressTests_MarkResults_1 21-1,,true,,105,1,1,0,0
+1481532933201,309,Staging_ProgressTests_MarkResults_1,204,No Content,ProgressTests_MarkResults_1 22-1,,true,,105,1,1,0,0
+1481532933513,302,Staging_ProgressTests_MarkResults_1,204,No Content,ProgressTests_MarkResults_1 23-1,,true,,105,1,1,0,0
+1481532933817,275,Staging_ProgressTests_MarkResults_1,204,No Content,ProgressTests_MarkResults_1 24-1,,true,,105,1,1,0,0
+1481532934095,264,Staging_ProgressReports_IndividualStudentReports_1,200,OK,ProgressReports_IndividualStudentReports_1 25-1,text,true,,375,1,1,264,0
+1481532934361,289,Staging_ProgressReports_IndividualStudentReports_1,200,OK,ProgressReports_IndividualStudentReports_1 26-1,text,true,,375,1,1,289,0
+1481532934653,295,Staging_ProgressReports_IndividualStudentReports_1,200,OK,ProgressReports_IndividualStudentReports_1 27-1,text,true,,375,1,1,295,0
+1481532934952,568,Staging_ProgressReports_IndividualStudentReports_1,200,OK,ProgressReports_IndividualStudentReports_1 28-1,text,true,,375,1,1,568,0
+1481532935523,298,Staging_ProgressReports_StudentReports_1,200,OK,ProgressReports_StudentReports_1 29-1,text,true,,4412,1,1,298,0
+1481532935825,576,Staging_ProgressReports_StudentReports_1,200,OK,ProgressReports_StudentReports_1 30-1,text,true,,4387,1,1,576,0
+1481532936403,314,Staging_ProgressReports_StudentReports_1,200,OK,ProgressReports_StudentReports_1 31-1,text,true,,4406,1,1,314,0
+1481532936720,315,Staging_ProgressReports_StudentReports_1,200,OK,ProgressReports_StudentReports_1 32-1,text,true,,4406,1,1,315,0
+1481532937038,249,Staging_Groups_OnlineHomeworkResults_1,200,OK,Groups_OnlineHomeworkResults_1 33-1,text,true,,12073,1,1,223,0
+1481532937289,254,Staging_Groups_OnlineHomeworkResults_1,200,OK,Groups_OnlineHomeworkResults_1 34-1,text,true,,12093,1,1,221,0
+1481532937547,241,Staging_Groups_OnlineHomeworkResults_1,200,OK,Groups_OnlineHomeworkResults_1 35-1,text,true,,12080,1,1,210,0
+1481532937790,256,Staging_Groups_OnlineHomeworkResults_1,200,OK,Groups_OnlineHomeworkResults_1 36-1,text,true,,12085,1,1,230,0
+1481532938049,232,Staging_Groups_MentorResults_1,200,OK,Groups_MentorResults_1 37-1,text,true,,4139,1,1,232,0
+1481532938283,7498,Staging_Groups_MentorResults_1,200,OK,Groups_MentorResults_1 38-1,text,true,,4132,1,1,7498,0
+1481532945784,271,Staging_Groups_MentorResults_1,200,OK,Groups_MentorResults_1 39-1,text,true,,4132,1,1,229,0
+1481532946057,227,Staging_Groups_MentorResults_1,200,OK,Groups_MentorResults_1 40-1,text,true,,4107,1,1,227,0
+1481532946287,550,Staging_Groups_Summary_1,200,OK,Groups_Summary_1 41-1,text,true,,566,1,1,550,0
+1481532946839,393,Staging_Groups_Summary_1,200,OK,Groups_Summary_1 42-1,text,true,,643,1,1,392,0
+1481532947235,253,Staging_Groups_Summary_1,200,OK,Groups_Summary_1 43-1,text,true,,943,1,1,253,0
+1481532947490,274,Staging_Groups_Summary_1,200,OK,Groups_Summary_1 44-1,text,true,,566,1,1,274,0
+1481532947766,257,Staging_Groups_Members_1,200,OK,Groups_Members_1 45-1,text,true,,4254,1,1,256,0
+1481532948028,253,Staging_Groups_Members_1,200,OK,Groups_Members_1 46-1,text,true,,4281,1,1,253,0
+1481532948282,220,Staging_Groups_Members_1,200,OK,Groups_Members_1 47-1,text,true,,4264,1,1,220,0
+1481532948504,564,Staging_Groups_Members_1,200,OK,Groups_Members_1 48-1,text,true,,4253,1,1,534,0
+1481532949070,243,Staging_Groups_ProgressTests_1,200,OK,Groups_ProgressTests_1 49-1,text,true,,546,1,1,243,0
+1481532949315,615,Staging_Groups_ProgressTests_1,200,OK,Groups_ProgressTests_1 50-1,text,true,,565,1,1,612,0
+1481532949931,1691,Staging_Groups_ProgressTests_1,200,OK,Groups_ProgressTests_1 51-1,text,true,,565,1,1,1485,0
+1481532951625,363,Staging_Groups_ProgressTests_1,200,OK,Groups_ProgressTests_1 52-1,text,true,,565,1,1,362,0
+1481532951990,222,Staging_Groups_ProgressReports_1,200,OK,Groups_ProgressReports_1 53-1,text,true,,651,1,1,222,0
+1481532952215,533,Staging_Groups_ProgressReports_1,200,OK,Groups_ProgressReports_1 54-1,text,true,,651,1,1,533,0
+1481532952750,491,Staging_Groups_ProgressReports_1,200,OK,Groups_ProgressReports_1 55-1,text,true,,670,1,1,490,0
+1481532953242,2444,Staging_Groups_ProgressReports_1,200,OK,Groups_ProgressReports_1 56-1,text,true,,651,1,1,2444,0

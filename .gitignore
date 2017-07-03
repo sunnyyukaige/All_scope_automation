@@ -1,0 +1,13 @@
+# Logs
+backups/
+*.log
+*.png
+
+# User-specific files
+.idea
+apache-jmeter-3.0/
+SoapUI-5.2.1/
+
+# Compiled files
+__pycache__
+*.pyc
